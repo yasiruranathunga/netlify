@@ -30,7 +30,7 @@ const Home = ({ entryId }) => {
       
       <h1>{post.name}</h1>
       <h1>{post.email}</h1>
-      <img src={post.image.fields.webImageUrl}/>
+      <img src={post.image.fields.webImageUrl} alt={post.image.fields.altText}/>
     </div>
   );
 };
