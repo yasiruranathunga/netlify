@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import client from './contentful';  // Import your client
+import client from './contentful'; // Import your client
+import './home.css'; // Import CSS
 
 const Home = ({ entryId }) => {
   const [post, setPost] = useState(null);
@@ -9,7 +10,7 @@ const Home = ({ entryId }) => {
     // Fetch the entry by ID
     client.getEntry(entryId)
       .then((response) => {
-        setPost(response.fields);  // Set the post data
+        setPost(response.fields); // Set the post data
       })
       .catch((err) => {
         setError('Error fetching entry');
@@ -18,19 +19,26 @@ const Home = ({ entryId }) => {
   }, [entryId]);
 
   if (error) {
-    return <p>{error}</p>;
+    return <div className="error-message">{error}</div>;
   }
 
   if (!post) {
-    return <p>Loading...</p>;
+    return <div className="loading-message">Loading...</div>;
   }
-  console.log(post);
+
   return (
-    <div>
-      
-      <h1>{post.name}</h1>
-      <h1>{post.email}</h1>
-      <img src={post.image.fields.webImageUrl} alt={post.image.fields.altText}/>
+    <div className="container">
+      <div className="post-card">
+        <h1 className="post-title">{post.name}</h1>
+        <p className="post-email">{post.email}</p>
+        {post.image && (
+          <img
+            className="post-image"
+            src={post.image.fields.webImageUrl}
+            alt={post.image.fields.altText}
+          />
+        )}
+      </div>
     </div>
   );
 };

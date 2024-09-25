@@ -1,0 +1,41 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f9f9f9;
+  }
+  
+  .post-card {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    max-width: 400px;
+    text-align: center;
+  }
+  
+  .post-title {
+    font-size: 2rem;
+    color: #333;
+  }
+  
+  .post-email {
+    font-size: 1.2rem;
+    color: #555;
+  }
+  
+  .post-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-top: 20px;
+  }
+  
+  .loading-message, .error-message {
+    font-size: 1.5rem;
+    color: #888;
+    text-align: center;
+    padding: 20px;
+  }
+  
